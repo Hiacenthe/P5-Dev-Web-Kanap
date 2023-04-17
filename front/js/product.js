@@ -54,3 +54,24 @@ function makeColors(colors){
     });
 }
 
+const addToCart = document.getElementById("addToCart");
+addToCart.onclick = () => {
+    const color = document.getElementById("colors").value;
+    const quantity = document.getElementById("quantity").value;
+    const item = {
+        id: id,
+        color: color,
+        quantity: quantity
+    }
+
+    let basket = [];
+
+    if(localStorage.getItem("basket") !== null && Array.isArray(localStorage.getItem("basket"))) {
+        basket = JSON.parse(localStorage.getItem("basket"));
+    }
+
+    basket.push(item);
+
+    localStorage.setItem(id, JSON.stringify(basket));
+}
+
