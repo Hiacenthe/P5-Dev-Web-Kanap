@@ -55,13 +55,19 @@ function makeColors(colors){
 }
 
 const addToCart = document.getElementById("addToCart");
-addToCart.onclick = () => {
+addToCart.addEventListener ("click", () => {
     const color = document.getElementById("colors").value;
     const quantity = document.getElementById("quantity").value;
+
     const item = {
         id: id,
         color: color,
         quantity: quantity
+    }
+
+    if(color == null || color === "" || quantity == 0 || quantity == null) {
+        alert("Please select a color and quantity")
+        return
     }
 
     let basket = [];
@@ -73,5 +79,6 @@ addToCart.onclick = () => {
     basket.push(item);
 
     localStorage.setItem(id, JSON.stringify(basket));
-}
+    window.location.href = "cart.html"
+})
 

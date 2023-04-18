@@ -22,13 +22,16 @@
  *      trouver le produit dont on modifie la quantite
  *          Trouver la balise article qui itemquantity
  *          recuperer les dataAttributes de la balise article
- *          grace au data-color et data-
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
+ *          grace aux data-id et data-color, retrouver le produit dans le panier du localStorage
+ *      modifier la quantité dans le panier du localStorage
+ *      mettre à jour le prix total
  */
+
+fetch('http://localhost:3000/api/products')
+.then(response => response.json())
+.then(function (products) {
+
+    products.forEach(function(product){
+        showProduct(product)
+    })
+})
