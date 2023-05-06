@@ -78,7 +78,7 @@ addToCart.addEventListener ("click", () => {
 
     basket.push(item);
 
-    localStorage.setItem(id, JSON.stringify(basket));
+    localStorage.setItem("addToCart", JSON.stringify(basket));
     window.location.href = "cart.html"
 })
 

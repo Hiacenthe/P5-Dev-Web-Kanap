@@ -1,7 +1,7 @@
 // Récupération de tous les produits à afficher
 fetch('http://localhost:3000/api/products')
 .then(response => response.json())
-.then(function (products) {
+.then(function(products) {
 
     products.forEach(function(product){
         showProduct(product)

@@ -2,7 +2,7 @@
  * fetch recuperer tous les produits
  * recuperer le panier dans le localstorage
  * filtrer parmit tous produits, ceux qui existent dans le panier
- * faire un bouclr sur les produits filtres
+ * faire une boucle sur les produits filtres
  * pour chaque produit filtre,
  *      creer le DOM du produit
  *      inserer le produit dans la page
@@ -29,9 +29,24 @@
 
 fetch('http://localhost:3000/api/products')
 .then(response => response.json())
-.then(function (products) {
+.then(function(products){
+    
+    const basket = JSON.parse(localStorage.getItem("basket"));
 
-    products.forEach(function(product){
-        showProduct(product)
-    })
-})
+    console.log(basket)
+
+    basket.forEach(function(item) {
+        
+        const foundProduct = products.find(function(product) {
+            return product.id == item.id && product.color == item.color;
+        });
+    });
+    
+});
+
+
+
+
+
+
+
